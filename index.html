@@ -427,6 +427,11 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .menu-section .menu-grid.menu-carousel .price{flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:center;gap:5px}
 .menu-section .menu-grid.menu-carousel .price .pl{display:flex;align-items:center;gap:9px;white-space:nowrap}
 .menu-section .menu-grid.menu-carousel .price .pl small{min-width:24px;text-align:center;padding:3px 6px}
+/* ---------- Dish cards: no dead space (all text blocks reserve fixed lines, price follows directly) ---------- */
+.menu-section .menu-grid.menu-carousel .dish{height:auto;padding-bottom:0}
+.menu-section .menu-grid.menu-carousel .dish h3{min-height:2.6em}
+.menu-section .menu-grid.menu-carousel .dish p{min-height:2.9em;margin-bottom:10px}
+.menu-section .menu-grid.menu-carousel .price{margin-top:0}
 /* ---------- Language switch ---------- */
 .lang-toggle{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:30px;background:#fff;padding:3px;cursor:pointer;font-family:inherit;flex:none}
 .lang-toggle span{padding:6px 11px;border-radius:24px;font-size:12px;font-weight:800;color:#666;line-height:1;transition:.2s}
