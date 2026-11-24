@@ -406,6 +406,29 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 }
 @media(hover:none){.branch:hover,.menu-section .menu-grid.menu-carousel .dish:hover{transform:none;box-shadow:none}}
 
+
+/* ---------- Dish cards: one fixed size everywhere ---------- */
+.menu-section .menu-grid.menu-carousel{gap:14px;align-items:flex-start}
+.menu-section .menu-grid.menu-carousel .dish{flex:0 0 200px;width:200px;height:var(--dish-h,304px);min-height:0;padding:8px 8px 0;gap:0;border-radius:16px;box-shadow:0 2px 10px rgba(32,23,16,.04);overflow:hidden}
+.menu-section .menu-grid.menu-carousel .dish-photo,.menu-section .menu-grid.menu-carousel .dish-photo-fallback{width:100%;height:132px;min-height:0;aspect-ratio:auto;object-fit:cover;flex:none;border-radius:11px;margin:0 0 10px}
+.menu-section .menu-grid.menu-carousel .dish h3{font-size:13.5px;line-height:1.3;font-weight:800;padding:0 4px;margin:0 0 4px;flex:none;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.menu-section .menu-grid.menu-carousel .dish p{flex:none;font-size:11px;line-height:1.45;padding:0 4px;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.menu-section .menu-grid.menu-carousel .price{margin:auto 4px 0;height:50px;flex:none;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-content:center;align-items:center;justify-content:space-between;gap:3px 8px;font-size:13px;font-weight:800;line-height:1.25;letter-spacing:0}
+.menu-section .menu-grid.menu-carousel .price small{margin:0;font-size:10px;font-weight:700;color:var(--orange-dark);background:var(--orange-soft);padding:3px 7px;border-radius:20px;white-space:nowrap}
+.menu-section .menu-grid.menu-carousel .tag{top:14px;right:14px}
+@media(max-width:700px){
+.menu-section .menu-grid.menu-carousel{gap:10px}
+.menu-section .menu-grid.menu-carousel .dish{flex:0 0 176px;width:176px;padding:7px 7px 0}
+.menu-section .menu-grid.menu-carousel .dish-photo,.menu-section .menu-grid.menu-carousel .dish-photo-fallback{height:116px}
+.menu-section .menu-grid.menu-carousel .dish h3{font-size:13px}
+.menu-section .menu-grid.menu-carousel .price{font-size:12.5px}
+}
+/* ---------- Language switch ---------- */
+.lang-toggle{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:30px;background:#fff;padding:3px;cursor:pointer;font-family:inherit;flex:none}
+.lang-toggle span{padding:6px 11px;border-radius:24px;font-size:12px;font-weight:800;color:#666;line-height:1;transition:.2s}
+.lang-toggle span.on{background:var(--orange);color:#fff}
+html[lang="zh-CN"] body{font-family:'Inter','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif}
+html[lang="zh-CN"] h1,html[lang="zh-CN"] h2,html[lang="zh-CN"] h3,html[lang="zh-CN"] h4{font-family:'Outfit','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',sans-serif;letter-spacing:0}
 </style>
 </head>
 <body>
@@ -426,6 +449,7 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 <a class="nav-link" href="#contact">Contact</a>
 </nav>
 <a class="btn btn-primary header-cta" href="#branches">Find a branch</a>
+<button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language"><span data-l="en" class="on">EN</span><span data-l="zh">中文</span></button>
 <button type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu" class="burger" id="burger">
 <span></span><span></span><span></span>
 </button>
@@ -437,13 +461,13 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 <div class="hero-copy">
 <div class="eyebrow">Your next favourite sip</div>
 <h1>Freshly brewed.<br/><span>Made your way.</span></h1>
-<p class="lead">From slow-brewed milk tea and real-fruit teas to Spanish lattes and thick shakes — Neferdidi is your everyday treat, made fresh in every cup, at 12 branches across Egypt.</p>
+<p class="lead">From slow-brewed milk tea and real-fruit teas to Spanish lattes and thick shakes — Neferdidi is your everyday treat, made fresh in every cup, at 15+ branches across Egypt.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#menu">Explore the menu →</a>
 <a class="btn btn-ghost" href="#branches">Find your branch</a>
 </div>
 <div class="hero-stats">
-<div><b>12<em>+</em></b><span>Branches</span></div>
+<div><b>15<em>+</em></b><span>Branches</span></div>
 <div><b>3</b><span>Governorates</span></div>
 <div><b>100<em>%</em></b><span>Fresh daily</span></div>
 </div>
@@ -476,7 +500,7 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 </div>
 <div class="story-cards reveal">
 <div class="story-card">
-<div class="big">12+</div>
+<div class="big">15+</div>
 <b>Branches &amp; counting</b>
 <p>Cairo, New Cairo, 10th of Ramadan, Ismailia, Obour and more on the way.</p>
 </div>
@@ -513,266 +537,266 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 </div>
 <div class="menu-grid reveal" id="menuGrid">
 <!-- FRUIT & SLUSH -->
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Mango Coconut Milk Mango and coconut milk blended into a tropical, creamy treat." data-cat="fruit">
 <img alt="Mango Coconut Milk" class="dish-photo" src="drink-24.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥥</div>
 <h3>Mango Coconut Milk</h3>
 <p>Mango and coconut milk blended into a tropical, creamy treat.</p>
 <div class="price">170 EGP / 23 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Fresh Green Grape Fruit Slush Real green grapes blended with ice for a refreshing slush." data-cat="fruit">
 <img alt="Fresh Green Grape Fruit Slush" class="dish-photo" src="drink-03.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍇</div>
 <h3>Fresh Green Grape Fruit Slush</h3>
 <p>Real green grapes blended with ice for a refreshing slush.</p>
 <div class="price">170 EGP / 23 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Mixed Grapefruit Fruit Slush Citrusy grapefruit blended into a cool, tangy slush." data-cat="fruit">
 <img alt="Mixed Grapefruit Fruit Slush" class="dish-photo" src="drink-04.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍊</div>
 <h3>Mixed Grapefruit Fruit Slush</h3>
 <p>Citrusy grapefruit blended into a cool, tangy slush.</p>
 <div class="price">170 EGP / 23 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Fresh Peach Fruit Tea Sweet peach slices in a light, refreshing fruit tea." data-cat="fruit">
 <img alt="Fresh Peach Fruit Tea" class="dish-photo" src="drink-32.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍑</div>
 <h3>Fresh Peach Fruit Tea</h3>
 <p>Sweet peach slices in a light, refreshing fruit tea.</p>
 <div class="price">150 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Strawberry &amp; Fresh Orange Fruit Tea A vibrant mix of strawberry and fresh orange in iced tea." data-cat="fruit">
 <img alt="Strawberry &amp; Fresh Orange Fruit Tea" class="dish-photo" src="drink-01.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍓</div>
 <h3>Strawberry &amp; Fresh Orange Fruit Tea</h3>
 <p>A vibrant mix of strawberry and fresh orange in iced tea.</p>
 <div class="price">150 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Passion Fruit &amp; Mango Tea Tangy passion fruit meets sweet mango over iced tea." data-cat="fruit">
 <img alt="Passion Fruit &amp; Mango Tea" class="dish-photo" src="drink-46.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥭</div>
 <h3>Passion Fruit &amp; Mango Tea</h3>
 <p>Tangy passion fruit meets sweet mango over iced tea.</p>
 <div class="price">140 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Peach Oolong Lemon Tea Fragrant oolong tea with peach and a bright lemon twist." data-cat="fruit">
 <img alt="Peach Oolong Lemon Tea" class="dish-photo" src="drink-20.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍋</div>
 <h3>Peach Oolong Lemon Tea</h3>
 <p>Fragrant oolong tea with peach and a bright lemon twist.</p>
 <div class="price">140 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Green Grape Lemon Tea Green grape and lemon over iced tea for a zesty sip." data-cat="fruit">
 <img alt="Green Grape Lemon Tea" class="dish-photo" src="drink-31.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍋</div>
 <h3>Green Grape Lemon Tea</h3>
 <p>Green grape and lemon over iced tea for a zesty sip.</p>
 <div class="price">140 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Lemon Green Tea Classic iced green tea with fresh lemon." data-cat="fruit">
 <img alt="Lemon Green Tea" class="dish-photo" src="drink-23.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍋</div>
 <h3>Lemon Green Tea</h3>
 <p>Classic iced green tea with fresh lemon.</p>
 <div class="price">120 EGP / 16 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Cream Lemon Smoothie Lemon blended with cream for a smooth, tangy treat." data-cat="fruit">
 <img alt="Cream Lemon Smoothie" class="dish-photo" src="drink-40.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍋</div>
 <h3>Cream Lemon Smoothie</h3>
 <p>Lemon blended with cream for a smooth, tangy treat.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Cantaloupe Slush Sweet cantaloupe blended into a refreshing slush." data-cat="fruit">
 <img alt="Cantaloupe Slush" class="dish-photo" src="drink-15.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍈</div>
 <h3>Cantaloupe Slush</h3>
 <p>Sweet cantaloupe blended into a refreshing slush.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Cream Strawberry Slush Strawberries and cream blended into a thick slush." data-cat="fruit">
 <img alt="Cream Strawberry Slush" class="dish-photo" src="drink-25.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍓</div>
 <h3>Cream Strawberry Slush</h3>
 <p>Strawberries and cream blended into a thick slush.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="fruit">
+<article class="dish" data-search="Cream Grape Slush Grape and cream blended for a smooth, fruity slush." data-cat="fruit">
 <img alt="Cream Grape Slush" class="dish-photo" src="drink-41.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍇</div>
 <h3>Cream Grape Slush</h3>
 <p>Grape and cream blended for a smooth, fruity slush.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
 <!-- BOBA & MILK TEA -->
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Brown Sugar Boba Milk Tea Caramelised brown sugar syrup, creamy milk and warm boba pearls." data-cat="boba">
 <span class="tag">Bestseller</span>
 <img alt="Brown Sugar Boba Milk Tea" class="dish-photo" src="drink-07.webp" loading="lazy" decoding="async"/><div class="dish-icon">🧋</div>
 <h3>Brown Sugar Boba Milk Tea</h3>
 <p>Caramelised brown sugar syrup, creamy milk and warm boba pearls.</p>
 <div class="price">140/120 EGP · 20/16 RMB <small>(L/M)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Pudding Boba Milk Tea Classic milk tea with boba pearls and silky pudding." data-cat="boba">
 <img alt="Pudding Boba Milk Tea" class="dish-photo" src="drink-38.webp" loading="lazy" decoding="async"/><div class="dish-icon">🧋</div>
 <h3>Pudding Boba Milk Tea</h3>
 <p>Classic milk tea with boba pearls and silky pudding.</p>
 <div class="price">160/140 EGP · 22/20 RMB <small>(L/M)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Green Grape Boba Green grape milk tea topped with a creamy foam." data-cat="boba">
 <img alt="Cream Green Grape Boba" class="dish-photo" src="drink-42.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍇</div>
 <h3>Cream Green Grape Boba</h3>
 <p>Green grape milk tea topped with a creamy foam.</p>
 <div class="price">160 EGP / 22 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Red Grape Boba Red grape milk tea with a rich cream layer." data-cat="boba">
 <img alt="Cream Red Grape Boba" class="dish-photo" src="drink-26.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍇</div>
 <h3>Cream Red Grape Boba</h3>
 <p>Red grape milk tea with a rich cream layer.</p>
 <div class="price">160 EGP / 22 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Peach Boba Peach milk tea finished with a creamy foam." data-cat="boba">
 <img alt="Cream Peach Boba" class="dish-photo" src="drink-43.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍑</div>
 <h3>Cream Peach Boba</h3>
 <p>Peach milk tea finished with a creamy foam.</p>
 <div class="price">160 EGP / 22 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Mango Boba Mango milk tea topped with a smooth cream foam." data-cat="boba">
 <img alt="Cream Mango Boba" class="dish-photo" src="drink-48.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥭</div>
 <h3>Cream Mango Boba</h3>
 <p>Mango milk tea topped with a smooth cream foam.</p>
 <div class="price">160 EGP / 22 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Strawberry Milk Shake Thick and creamy strawberry milkshake." data-cat="boba">
 <img alt="Strawberry Milk Shake" class="dish-photo" src="drink-02.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥛</div>
 <h3>Strawberry Milk Shake</h3>
 <p>Thick and creamy strawberry milkshake.</p>
 <div class="price">150 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Peach Light Milk Tea Boba Light peach milk tea with chewy boba pearls." data-cat="boba">
 <img alt="Peach Light Milk Tea Boba" class="dish-photo" src="drink-18.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍑</div>
 <h3>Peach Light Milk Tea Boba</h3>
 <p>Light peach milk tea with chewy boba pearls.</p>
 <div class="price">140 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Jasmine Light Milk Tea Boba Fragrant jasmine milk tea with boba pearls." data-cat="boba">
 <img alt="Jasmine Light Milk Tea Boba" class="dish-photo" src="drink-16.webp" loading="lazy" decoding="async"/><div class="dish-icon">🌸</div>
 <h3>Jasmine Light Milk Tea Boba</h3>
 <p>Fragrant jasmine milk tea with boba pearls.</p>
 <div class="price">140 EGP / 20 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Peach Oolong Tea Oolong tea with peach and a cream foam top." data-cat="boba">
 <img alt="Cream Peach Oolong Tea" class="dish-photo" src="drink-45.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍑</div>
 <h3>Cream Peach Oolong Tea</h3>
 <p>Oolong tea with peach and a cream foam top.</p>
 <div class="price">130 EGP / 17 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Cream Jasmine Tea Jasmine tea topped with a light cream foam." data-cat="boba">
 <img alt="Cream Jasmine Tea" class="dish-photo" src="drink-28.webp" loading="lazy" decoding="async"/><div class="dish-icon">🌸</div>
 <h3>Cream Jasmine Tea</h3>
 <p>Jasmine tea topped with a light cream foam.</p>
 <div class="price">130 EGP / 17 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="boba">
+<article class="dish" data-search="Creamy Cocoa Rich cocoa blended with milk for a smooth, creamy drink." data-cat="boba">
 <img alt="Creamy Cocoa" class="dish-photo" src="drink-27.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍫</div>
 <h3>Creamy Cocoa</h3>
 <p>Rich cocoa blended with milk for a smooth, creamy drink.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
 <!-- PISTACHIO SERIES -->
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Mango Pistachio Mango and pistachio blended into a unique, nutty treat." data-cat="pistachio">
 <span class="tag new">New</span>
 <img alt="Mango Pistachio" class="dish-photo" src="drink-14.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥭</div>
 <h3>Mango Pistachio</h3>
 <p>Mango and pistachio blended into a unique, nutty treat.</p>
 <div class="price">170 EGP / 23 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Pistachio Spanish Latte Spanish latte with a rich pistachio twist." data-cat="pistachio">
 <img alt="Pistachio Spanish Latte" class="dish-photo" src="drink-13.webp" loading="lazy" decoding="async"/><div class="dish-icon">☕</div>
 <h3>Pistachio Spanish Latte</h3>
 <p>Spanish latte with a rich pistachio twist.</p>
 <div class="price">170 EGP / 23 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Pistachio Cream Peach Oolong Tea Peach oolong tea with pistachio cream foam." data-cat="pistachio">
 <img alt="Pistachio Cream Peach Oolong Tea" class="dish-photo" src="drink-44.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍑</div>
 <h3>Pistachio Cream Peach Oolong Tea</h3>
 <p>Peach oolong tea with pistachio cream foam.</p>
 <div class="price">130 EGP / 17 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Pistachio Cream Jasmine Tea Jasmine tea topped with pistachio cream foam." data-cat="pistachio">
 <img alt="Pistachio Cream Jasmine Tea" class="dish-photo" src="drink-36.webp" loading="lazy" decoding="async"/><div class="dish-icon">🌸</div>
 <h3>Pistachio Cream Jasmine Tea</h3>
 <p>Jasmine tea topped with pistachio cream foam.</p>
 <div class="price">130 EGP / 17 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Strawberry Pistachio Strawberry and pistachio blended into a creamy delight." data-cat="pistachio">
 <img alt="Strawberry Pistachio" class="dish-photo" src="drink-10.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍓</div>
 <h3>Strawberry Pistachio</h3>
 <p>Strawberry and pistachio blended into a creamy delight.</p>
 <div class="price">170/150 EGP · 23/20 RMB <small>(L/M)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Cocoa Pistachio Cocoa and pistachio combined for a rich, nutty drink." data-cat="pistachio">
 <img alt="Cocoa Pistachio" class="dish-photo" src="drink-11.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍫</div>
 <h3>Cocoa Pistachio</h3>
 <p>Cocoa and pistachio combined for a rich, nutty drink.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="pistachio">
+<article class="dish" data-search="Coffee Pistachio Coffee blended with pistachio for a unique flavour." data-cat="pistachio">
 <img alt="Coffee Pistachio" class="dish-photo" src="drink-12.webp" loading="lazy" decoding="async"/><div class="dish-icon">☕</div>
 <h3>Coffee Pistachio</h3>
 <p>Coffee blended with pistachio for a unique flavour.</p>
 <div class="price">120 EGP / 16 RMB <small>(M)</small></div>
 </article>
 <!-- COFFEE & TEA -->
-<article class="dish" data-cat="coffee">
+<article class="dish" data-search="Spanish Latte Espresso, condensed milk and steamed milk — sweet and strong." data-cat="coffee">
 <span class="tag">Bestseller</span>
 <img alt="Spanish Latte" class="dish-photo" src="drink-34.webp" loading="lazy" decoding="async"/><div class="dish-icon">☕</div>
 <h3>Spanish Latte</h3>
 <p>Espresso, condensed milk and steamed milk — sweet and strong.</p>
 <div class="price">150/120 EGP · 20/16 RMB <small>(L/M)</small></div>
 </article>
-<article class="dish" data-cat="coffee">
+<article class="dish" data-search="Creamy Coffee Smooth, creamy coffee for a rich pick-me-up." data-cat="coffee">
 <img alt="Creamy Coffee" class="dish-photo" src="drink-27.webp" loading="lazy" decoding="async"/><div class="dish-icon">☕</div>
 <h3>Creamy Coffee</h3>
 <p>Smooth, creamy coffee for a rich pick-me-up.</p>
 <div class="price">120 EGP / 16 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="coffee">
+<article class="dish" data-search="Coffee Slush Blended iced coffee for a refreshing caffeine kick." data-cat="coffee">
 <img alt="Coffee Slush" class="dish-photo" src="drink-17.webp" loading="lazy" decoding="async"/><div class="dish-icon">🧊</div>
 <h3>Coffee Slush</h3>
 <p>Blended iced coffee for a refreshing caffeine kick.</p>
 <div class="price">160 EGP / 22 RMB <small>(M)</small></div>
 </article>
-<article class="dish" data-cat="coffee">
+<article class="dish" data-search="Orange Black Tea Black tea infused with fresh orange." data-cat="coffee">
 <img alt="Orange Black Tea" class="dish-photo" src="drink-21.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍊</div>
 <h3>Orange Black Tea</h3>
 <p>Black tea infused with fresh orange.</p>
 <div class="price">130 EGP / 17 RMB <small>(L)</small></div>
 </article>
-<article class="dish" data-cat="coffee">
+<article class="dish" data-search="Lemon Black Tea Classic black tea with a bright lemon finish." data-cat="coffee">
 <img alt="Lemon Black Tea" class="dish-photo" src="drink-22.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍋</div>
 <h3>Lemon Black Tea</h3>
 <p>Classic black tea with a bright lemon finish.</p>
 <div class="price">120 EGP / 16 RMB <small>(M)</small></div>
 </article>
 <!-- TOPPINGS -->
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Pistachio Foam Rich and nutty pistachio cream foam." data-cat="topping">
 <img alt="Pistachio Foam" class="dish-photo" src="drink-30.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥜</div>
 <h3>Pistachio Foam</h3>
 <p>Rich and nutty pistachio cream foam.</p>
 <div class="price">20 EGP</div>
 </article>
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Cream Foam Classic sweet cream foam topping." data-cat="topping">
 <img alt="Cream Foam" class="dish-photo" src="drink-29.webp" loading="lazy" decoding="async"/><div class="dish-icon">🥛</div>
 <h3>Cream Foam</h3>
 <p>Classic sweet cream foam topping.</p>
 <div class="price">20 EGP</div>
 </article>
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Crystal Jelly Boba Light, crunchy crystal jelly pearls." data-cat="topping">
 <img alt="Crystal Jelly Boba" class="dish-photo" src="drink-05.webp" loading="lazy" decoding="async"/><div class="dish-icon">✨</div>
 <h3>Crystal Jelly Boba</h3>
 <p>Light, crunchy crystal jelly pearls.</p>
 <div class="price">20 EGP</div>
 </article>
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Boba Chewy tapioca pearls." data-cat="topping">
 <img alt="Boba" class="dish-photo" src="drink-09.webp" loading="lazy" decoding="async"/><div class="dish-icon">⚫</div>
 <h3>Boba</h3>
 <p>Chewy tapioca pearls.</p>
 <div class="price">20 EGP</div>
 </article>
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Sago Small, soft sago pearls." data-cat="topping">
 <img alt="Sago" class="dish-photo" src="drink-19.webp" loading="lazy" decoding="async"/><div class="dish-icon">⚪</div>
 <h3>Sago</h3>
 <p>Small, soft sago pearls.</p>
 <div class="price">20 EGP</div>
 </article>
-<article class="dish" data-cat="topping">
+<article class="dish" data-search="Pudding Silky, sweet pudding cubes." data-cat="topping">
 <img alt="Pudding" class="dish-photo" src="drink-47.webp" loading="lazy" decoding="async"/><div class="dish-icon">🍮</div>
 <h3>Pudding</h3>
 <p>Silky, sweet pudding cubes.</p>
@@ -794,7 +818,7 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 <h2>Find your Neferdidi</h2>
 <p>See every branch on the map, search by name or area, then tap to open the location in Google Maps.</p>
 </div>
-<div class="count" id="count">12 LOCATIONS</div>
+<div class="count" id="count">13 LOCATIONS</div>
 </div>
 <div class="toolbar reveal">
 <div class="search">
@@ -918,6 +942,15 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 <h3>Obour – Golf City Mall</h3>
 <p class="address">Golf City Mall, Obour, Al-Qalyubia</p>
 <div class="actions"><a class="map-btn primary" href="https://www.google.com/maps/place/neferdidi+el+obour/@30.174349,31.3933971,12z/data=!4m6!3m5!1s0x14581b6edef15b4b:0x58431d251db9f072!8m2!3d30.1740509!4d31.4751113!16s%2Fg%2F11zz9xn38v?entry=ttu&amp;g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" rel="noopener" target="_blank">↗ Open in Maps</a><button class="map-btn secondary show-on-map" type="button">◎ Show on map</button></div>
+</div>
+</article>
+<article class="branch" data-lat="30.0444" data-lng="31.2357" data-approx="1" data-area="cairo" data-name="downtown wust el balad cairo">
+<div class="card-top"></div>
+<div class="card-content">
+<div class="branch-number">13 / Cairo</div>
+<h3>Downtown</h3>
+<p class="address">Downtown Cairo</p>
+<div class="actions"><a class="map-btn primary" href="https://maps.app.goo.gl/BqkxXgY1vdEnTfsn7" rel="noopener" target="_blank">↗ Open in Maps</a><button class="map-btn secondary show-on-map" type="button">◎ Show on map</button></div>
 </div>
 </article>
 <div class="empty" id="empty">No branches match your search. Try another name or area.</div>
@@ -1197,7 +1230,7 @@ document.addEventListener('click', e => {
       let categoryVisible = 0;
       cards.forEach(dish => {
         const imageAlt = dish.querySelector('img')?.alt || '';
-        const match = !term || normalize(dish.textContent + ' ' + imageAlt).includes(term);
+        const match = !term || normalize(dish.textContent + ' ' + imageAlt + ' ' + (dish.dataset.search || '')).includes(term);
         dish.classList.toggle('hide', !match);
         if (match) { visible++; categoryVisible++; }
       });
@@ -1397,6 +1430,102 @@ document.getElementById('year').textContent = new Date().getFullYear();
     if (e.key === 'ArrowLeft') show(idx - 1);
     if (e.key === 'ArrowRight') show(idx + 1);
   });
+})();
+</script>
+<script>
+(function () {
+  var ZH = {"Neferdidi | Milkteashop — Freshly Brewed, Made Your Way": "Neferdidi 奶茶店 | 鲜煮现做，随心定制", "MILKTEASHOP": "奶茶店", "Home": "首页", "Our Story": "品牌故事", "Menu": "菜单", "Branches": "门店", "Events": "活动", "Contact": "联系我们", "Find a branch": "查找门店", "Your next favourite sip": "你的下一杯心头好", "Freshly brewed.": "鲜煮现做。", "Made your way.": "随心定制。", "Explore the menu →": "探索菜单 →", "Find your branch": "找到你的门店", "Governorates": "个省份", "Fresh daily": "每日新鲜", "Freshly Brewed": "鲜煮现做", "Daily Boba": "每日珍珠", "Real Fruit": "真果真味", "Our story": "品牌故事", "A little cup of happiness, brewed every day.": "每天用心煮出的一小杯幸福。", "Neferdidi started with one simple idea: a great milk tea shouldn't be a special occasion. It should be the thing you grab on the way to work, the treat you share with friends, the little pause in a long day.": "Neferdidi 源于一个简单的想法：一杯好奶茶不该只属于特别的日子。它应该是你上班路上顺手带上的一杯，是与朋友分享的小确幸，是漫长一天里的小小停顿。", "So we keep it simple — real tea brewed in small batches, fresh milk, real fruit, and pearls cooked fresh every single day. No shortcuts, no powders pretending to be tea.": "所以我们把事情做得很简单——小批量现煮真茶、新鲜牛奶、真材实料的水果，以及每天现煮的珍珠。不走捷径，不用冒充茶的粉末。", "Tea brewed fresh in-store, multiple times a day": "门店每天多次现煮新鲜茶底", "Boba pearls cooked on-site, never re-heated": "珍珠现场现煮，绝不回锅加热", "Real fruit purées — no artificial syrups": "真果果泥——不使用人工糖浆", "Branches & counting": "门店持续增加中", "Cairo, New Cairo, 10th of Ramadan, Ismailia, Obour and more on the way.": "开罗、新开罗、斋月十日城、伊斯梅利亚、奥布尔，更多门店即将开业。", "Made the way you like it": "按你的口味定制", "Every cup is customisable — milk swap and as many toppings as you dare.": "每一杯都可以自由定制——可更换奶类，小料随你加。", "Good drinks. Good moments.": "好饮品，好时光。", "That's the whole point. Come for the boba, stay for the vibe.": "这就是我们的初衷。为珍珠而来，为氛围而留。", "Our menu": "我们的菜单", "Something for every craving": "满足每一种小馋", "Browse each collection, then swipe sideways to explore the drinks. Or search for your favourite.": "浏览各个系列，左右滑动探索饮品，或直接搜索你的最爱。", "All Items": "全部", "Fruit & Slush": "水果与冰沙", "Boba & Milk Tea": "珍珠奶茶", "Pistachio Series": "开心果系列", "Coffee & Tea": "咖啡与茶", "Toppings": "小料", "Fresh, fruity and refreshing": "新鲜果香，清爽解渴", "Creamy classics and chewy boba": "绵密经典与Q弹珍珠", "Rich, nutty favourites": "浓郁坚果香的人气之选", "Your everyday pick-me-up": "每日提神好选择", "Make your drink your own": "打造专属你的一杯", "Preparing menu…": "菜单加载中…", "No drinks found. Try another name or category.": "没有找到饮品，请换个名称或分类试试。", "Bestseller": "热销", "New": "新品", "(L)": "(大杯)", "(M)": "(中杯)", "(L/M)": "(大/中杯)", "Mango Coconut Milk": "芒果椰奶", "Mango and coconut milk blended into a tropical, creamy treat.": "芒果与椰奶调制出的热带风味奶香饮品。", "Fresh Green Grape Fruit Slush": "鲜青提冰沙", "Real green grapes blended with ice for a refreshing slush.": "新鲜青提与冰块打成清爽冰沙。", "Mixed Grapefruit Fruit Slush": "混合西柚冰沙", "Citrusy grapefruit blended into a cool, tangy slush.": "清新西柚打成冰爽微酸的冰沙。", "Fresh Peach Fruit Tea": "鲜桃水果茶", "Sweet peach slices in a light, refreshing fruit tea.": "香甜桃肉融入清爽果茶。", "Strawberry & Fresh Orange Fruit Tea": "草莓鲜橙果茶", "A vibrant mix of strawberry and fresh orange in iced tea.": "草莓与鲜橙融入冰茶，缤纷多彩。", "Passion Fruit & Mango Tea": "百香果芒果茶", "Tangy passion fruit meets sweet mango over iced tea.": "酸爽百香果遇上香甜芒果，配冰茶底。", "Peach Oolong Lemon Tea": "蜜桃乌龙柠檬茶", "Fragrant oolong tea with peach and a bright lemon twist.": "芬芳乌龙茶配蜜桃与清爽柠檬。", "Green Grape Lemon Tea": "青提柠檬茶", "Green grape and lemon over iced tea for a zesty sip.": "青提与柠檬融入冰茶，酸爽可口。", "Lemon Green Tea": "柠檬绿茶", "Classic iced green tea with fresh lemon.": "经典冰绿茶配鲜柠檬。", "Cream Lemon Smoothie": "奶盖柠檬思慕雪", "Lemon blended with cream for a smooth, tangy treat.": "柠檬与奶油打成顺滑微酸的饮品。", "Cantaloupe Slush": "哈密瓜冰沙", "Sweet cantaloupe blended into a refreshing slush.": "香甜哈密瓜打成清爽冰沙。", "Cream Strawberry Slush": "奶油草莓冰沙", "Strawberries and cream blended into a thick slush.": "草莓与奶油打成浓稠冰沙。", "Cream Grape Slush": "奶油葡萄冰沙", "Grape and cream blended for a smooth, fruity slush.": "葡萄与奶油混合，顺滑的果香冰沙。", "Brown Sugar Boba Milk Tea": "黑糖珍珠奶茶", "Caramelised brown sugar syrup, creamy milk and warm boba pearls.": "焦香黑糖浆、绵密牛奶与温热珍珠。", "Pudding Boba Milk Tea": "布丁珍珠奶茶", "Classic milk tea with boba pearls and silky pudding.": "经典奶茶配珍珠与丝滑布丁。", "Cream Green Grape Boba": "奶盖青提珍珠", "Green grape milk tea topped with a creamy foam.": "青提奶茶，覆上绵密奶盖。", "Cream Red Grape Boba": "奶盖红提珍珠", "Red grape milk tea with a rich cream layer.": "红提奶茶，覆上浓郁奶盖。", "Cream Peach Boba": "奶盖蜜桃珍珠", "Peach milk tea finished with a creamy foam.": "蜜桃奶茶，顶部是绵密奶盖。", "Cream Mango Boba": "奶盖芒果珍珠", "Mango milk tea topped with a smooth cream foam.": "芒果奶茶，顶部是顺滑奶盖。", "Strawberry Milk Shake": "草莓奶昔", "Thick and creamy strawberry milkshake.": "浓稠绵密的草莓奶昔。", "Peach Light Milk Tea Boba": "蜜桃轻乳茶珍珠", "Light peach milk tea with chewy boba pearls.": "清爽蜜桃奶茶配Q弹珍珠。", "Jasmine Light Milk Tea Boba": "茉莉轻乳茶珍珠", "Fragrant jasmine milk tea with boba pearls.": "茉莉花香奶茶配珍珠。", "Cream Peach Oolong Tea": "奶盖蜜桃乌龙茶", "Oolong tea with peach and a cream foam top.": "蜜桃乌龙茶，顶部是奶盖。", "Cream Jasmine Tea": "奶盖茉莉茶", "Jasmine tea topped with a light cream foam.": "茉莉茶，顶部是轻盈奶盖。", "Creamy Cocoa": "奶香可可", "Rich cocoa blended with milk for a smooth, creamy drink.": "浓郁可可与牛奶调和，顺滑香醇。", "Mango Pistachio": "芒果开心果", "Mango and pistachio blended into a unique, nutty treat.": "芒果与开心果混合，独特的坚果风味。", "Pistachio Spanish Latte": "开心果西班牙拿铁", "Spanish latte with a rich pistachio twist.": "西班牙拿铁加入浓郁开心果风味。", "Pistachio Cream Peach Oolong Tea": "开心果奶盖蜜桃乌龙茶", "Peach oolong tea with pistachio cream foam.": "蜜桃乌龙茶，配开心果奶盖。", "Pistachio Cream Jasmine Tea": "开心果奶盖茉莉茶", "Jasmine tea topped with pistachio cream foam.": "茉莉茶，顶部是开心果奶盖。", "Strawberry Pistachio": "草莓开心果", "Strawberry and pistachio blended into a creamy delight.": "草莓与开心果融合，绵密香甜。", "Cocoa Pistachio": "可可开心果", "Cocoa and pistachio combined for a rich, nutty drink.": "可可与开心果结合，浓郁坚果香。", "Coffee Pistachio": "咖啡开心果", "Coffee blended with pistachio for a unique flavour.": "咖啡与开心果调和，风味独特。", "Spanish Latte": "西班牙拿铁", "Espresso, condensed milk and steamed milk — sweet and strong.": "浓缩咖啡、炼乳与热牛奶——香甜浓烈。", "Creamy Coffee": "奶香咖啡", "Smooth, creamy coffee for a rich pick-me-up.": "顺滑奶香咖啡，醇厚提神。", "Coffee Slush": "咖啡冰沙", "Blended iced coffee for a refreshing caffeine kick.": "冰咖啡打成冰沙，清爽提神。", "Orange Black Tea": "鲜橙红茶", "Black tea infused with fresh orange.": "红茶融入鲜橙清香。", "Lemon Black Tea": "柠檬红茶", "Classic black tea with a bright lemon finish.": "经典红茶，收尾是清爽柠檬。", "Pistachio Foam": "开心果奶盖", "Rich and nutty pistachio cream foam.": "浓郁坚果香的开心果奶盖。", "Cream Foam": "奶盖", "Classic sweet cream foam topping.": "经典香甜奶盖小料。", "Crystal Jelly Boba": "水晶珍珠", "Light, crunchy crystal jelly pearls.": "清爽有嚼劲的水晶果冻珍珠。", "Boba": "波霸珍珠", "Chewy tapioca pearls.": "Q弹木薯珍珠。", "Sago": "西米", "Small, soft sago pearls.": "小颗软糯西米。", "Pudding": "布丁", "Silky, sweet pudding cubes.": "丝滑香甜的布丁块。", "Allergy Warning:": "过敏提示：", "Contains Dairy, Fruit, etc. Ask before ordering.": "含乳制品、水果等成分，点单前请先询问。", "Images shown are for display purposes only. Prices and availability may vary by branch.": "图片仅供展示。价格及供应情况可能因门店而异。", "Our locations": "我们的门店", "Find your Neferdidi": "找到你身边的 Neferdidi", "See every branch on the map, search by name or area, then tap to open the location in Google Maps.": "在地图上查看所有门店，按名称或区域搜索，点击即可在 Google 地图中打开。", "All areas": "全部区域", "Cairo": "开罗", "New Cairo": "新开罗", "Outside Cairo": "开罗以外", "The map couldn't load.": "地图加载失败。", "Search Neferdidi on Google Maps ↗": "在 Google 地图搜索 Neferdidi ↗", "↗ Open in Maps": "↗ 在地图中打开", "◎ Show on map": "◎ 在地图上查看", "↗ Open in Google Maps": "↗ 在 Google 地图中打开", "Approximate pin — open Google Maps for the exact spot": "此为大致位置——请在 Google 地图中查看确切地点", "10th of Ramadan": "斋月十日城", "Ismailia": "伊斯梅利亚", "Obour": "奥布尔", "City Stars": "城市之星", "Masaken Al Mohandesin, Nasr City": "纳赛尔城，Masaken Al Mohandesin", "Maadi": "马阿迪", "In front of Street of Happiness, Maadi City Center Entrance": "快乐街对面，马阿迪城市中心入口", "The Egyptian Museum": "埃及博物馆", "Tahrir Square, Wasim Hasan, Qasr El Nil, Downtown Cairo": "开罗市中心，解放广场，Wasim Hasan，Qasr El Nil", "Neferdidi Fuel Up": "Neferdidi Fuel Up", "El-Moshir Tantawy Axis, Al Hay Al Asher, Nasr City": "纳赛尔城，Al Hay Al Asher，Moshir Tantawy 大道", "Misr El Nour Road, 10th of Ramadan Second": "斋月十日城第二区，Misr El Nour 路", "Ismailia 3": "伊斯梅利亚 3", "The Ring Road, El Sheikh Zayed, Ismailia 3": "伊斯梅利亚 3，环城路，El Sheikh Zayed", "Park Mall": "公园购物中心", "Park Mall, New Cairo 1": "新开罗 1 区，公园购物中心", "Nasr City – 8th District": "纳赛尔城第八区", "Helmy Abd El-Aaty Street, Al Manteqah Ath Thamenah, Nasr City": "纳赛尔城第八区，Helmy Abd El-Aaty 街", "Citadel": "萨拉丁城堡", "Saladin Citadel area, Cairo": "开罗，萨拉丁城堡周边", "Sheraton": "喜来登", "Ankara Street, Sheraton Al Matar, El Nozha": "El Nozha，喜来登机场区，Ankara 街", "Child’s Park": "儿童公园", "Aku Plaza, Abou Dawoud Al Zaheri Street, 6th District, Nasr City": "纳赛尔城第六区，Aku Plaza，Abou Dawoud Al Zaheri 街", "Obour – Golf City Mall": "奥布尔 – 高尔夫城购物中心", "Golf City Mall, Obour, Al-Qalyubia": "盖卢比尤省奥布尔，高尔夫城购物中心", "Downtown": "市中心", "Downtown Cairo": "开罗市中心", "No branches match your search. Try another name or area.": "没有找到匹配的门店，请换个名称或区域试试。", "Out & about": "活动掠影", "Our events": "我们的活动", "Pyramids of Giza": "吉萨金字塔", "Beit El Hekma · Chinese Spring Festival 2026": "Beit El Hekma · 2026 中国春节", "Women's Day · International Garden": "妇女节 · 国际花园", "Women's Day": "妇女节", "MIU Theatre": "MIU 剧院", "Huawei": "华为", "Beit El Hekma": "Beit El Hekma", "Previous": "上一张", "Next": "下一张", "Previous photos": "上一组照片", "Next photos": "下一组照片", "Close": "关闭", "Back to top": "回到顶部", "Get in touch": "联系我们", "Let's talk": "聊一聊吧", "Whether you want to work with us, open a franchise, or just tell us how good your last cup was — we're listening.": "无论你想与我们合作、加盟开店，还是只想告诉我们上一杯有多好喝——我们都在倾听。", "Follow us for new flavours, behind-the-scenes and daily updates.": "关注我们，获取新口味、幕后花絮和每日动态。", "Stay connected with our community and find out about events.": "加入我们的社群，了解最新活动。", "Watch our latest drinks, trends and fun moments.": "观看我们的新品、潮流与欢乐瞬间。", "Freshly brewed milk tea, fruit tea, coffee and shakes — made your way, every day, across Egypt.": "鲜煮奶茶、水果茶、咖啡与奶昔——每天随心定制，遍布埃及。", "Explore": "探索", "Popular": "热门", "Brown Sugar Boba": "黑糖珍珠", "Good drinks. Good moments. ©": "好饮品，好时光。©", "Open menu": "打开菜单", "Neferdidi home": "Neferdidi 首页", "Neferdidi logo": "Neferdidi 标志", "Main navigation": "主导航", "Menu categories": "菜单分类", "Search drinks, tea, coffee...": "搜索饮品、茶、咖啡…", "Search menu items": "搜索菜单", "Search by branch or area...": "按门店或区域搜索…", "Search branches": "搜索门店", "Filter by area": "按区域筛选", "Map of Neferdidi branches": "Neferdidi 门店地图", "Switch language": "切换语言", "From slow-brewed milk tea and real-fruit teas to Spanish lattes and thick shakes — Neferdidi is your everyday treat, made fresh in every cup, at 15+ branches across Egypt.": "从慢煮奶茶、真果水果茶到西班牙拿铁和浓稠奶昔——Neferdidi 是你的日常小确幸，每一杯都新鲜现做，门店遍布埃及15家以上。"};
+  var PATTERNS = [
+    [/^(\d+) EGP \/ (\d+) RMB$/, function (m) { return m[2] + ' 元 / ' + m[1] + ' EGP'; }],
+    [/^(\d+)\/(\d+) EGP · (\d+)\/(\d+) RMB$/, function (m) { return m[3] + '/' + m[4] + ' 元 · ' + m[1] + '/' + m[2] + ' EGP'; }],
+    [/^(\d+) items?$/, function (m) { return m[1] + ' 款'; }],
+    [/^(\d+) matches?$/, function (m) { return m[1] + ' 个结果'; }],
+    [/^(\d+) drinks · swipe to explore$/, function (m) { return m[1] + ' 款饮品 · 左右滑动浏览'; }],
+    [/^(\d+) LOCATIONS?$/, function (m) { return m[1] + ' 家门店'; }],
+    [/^(\d+) \/ (Cairo|New Cairo|10th of Ramadan|Ismailia|Obour)$/, function (m) { return m[1] + ' / ' + (ZH[m[2]] || m[2]); }],
+    [/^Scroll (.+) (left|right)$/, function (m) { return (ZH[m[1]] || m[1]) + (m[2] === 'left' ? ' 向左滑动' : ' 向右滑动'); }],
+    [/^(.+) drinks$/, function (m) { return (ZH[m[1]] || m[1]) + ' 饮品'; }]
+  ];
+  function tr(raw) {
+    var k = raw.replace(/\s+/g, ' ').trim();
+    if (!k) return null;
+    if (Object.prototype.hasOwnProperty.call(ZH, k)) return ZH[k];
+    for (var i = 0; i < PATTERNS.length; i++) { var m = k.match(PATTERNS[i][0]); if (m) return PATTERNS[i][1](m); }
+    return null;
+  }
+  var lang = 'en', busy = false, queued = false;
+  var textState = new WeakMap(), attrState = new WeakMap();
+  var ATTRS = ['alt', 'aria-label', 'placeholder', 'title'];
+  var titleEn = document.title;
+
+  function eachText(fn) {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var p = n.parentNode && n.parentNode.nodeName;
+        return (p === 'SCRIPT' || p === 'STYLE' || p === 'NOSCRIPT') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var n; while ((n = w.nextNode())) fn(n);
+  }
+  function apply() {
+    busy = true;
+    if (lang === 'zh') {
+      eachText(function (n) {
+        var st = textState.get(n);
+        if (st && n.nodeValue === st.zh) return;
+        var z = tr(n.nodeValue);
+        if (z == null) { textState.delete(n); return; }
+        var lead = (n.nodeValue.match(/^\s*/) || [''])[0], trail = (n.nodeValue.match(/\s*$/) || [''])[0];
+        var en = n.nodeValue; n.nodeValue = lead + z + trail;
+        textState.set(n, { en: en, zh: n.nodeValue });
+      });
+      document.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(function (el) {
+        var st = attrState.get(el) || {}; 
+        ATTRS.forEach(function (a) {
+          if (!el.hasAttribute(a)) return;
+          var cur = el.getAttribute(a);
+          if (st[a] && cur === st[a].zh) return;
+          var z = tr(cur); if (z == null) return;
+          st[a] = { en: cur, zh: z }; el.setAttribute(a, z);
+        });
+        attrState.set(el, st);
+      });
+      var tz = tr(titleEn); if (tz) document.title = tz;
+    } else {
+      eachText(function (n) {
+        var st = textState.get(n);
+        if (st && n.nodeValue === st.zh) n.nodeValue = st.en;
+        textState.delete(n);
+      });
+      document.querySelectorAll('[alt],[aria-label],[placeholder],[title]').forEach(function (el) {
+        var st = attrState.get(el); if (!st) return;
+        ATTRS.forEach(function (a) { if (st[a] && el.getAttribute(a) === st[a].zh) el.setAttribute(a, st[a].en); });
+        attrState.delete(el);
+      });
+      document.title = titleEn;
+    }
+    busy = false;
+  }
+  function schedule() {
+    if (busy || queued || lang !== 'zh') return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; apply(); });
+  }
+  new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true, characterData: true });
+
+  var toggle = document.getElementById('langToggle');
+  function setLang(l, save) {
+    lang = l;
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    toggle.querySelectorAll('span').forEach(function (s) { s.classList.toggle('on', s.dataset.l === l); });
+    apply();
+    if (save) { try { localStorage.setItem('nfd-lang', l); } catch (e) {} }
+  }
+  toggle.addEventListener('click', function () { setLang(lang === 'zh' ? 'en' : 'zh', true); });
+  var saved = null; try { saved = localStorage.getItem('nfd-lang'); } catch (e) {}
+  // Run after all other page scripts have built the menu / map
+  window.addEventListener('DOMContentLoaded', function () { if (saved === 'zh') setLang('zh', false); });
+  if (document.readyState !== 'loading' && saved === 'zh') setLang('zh', false);
 })();
 </script>
 </body>
